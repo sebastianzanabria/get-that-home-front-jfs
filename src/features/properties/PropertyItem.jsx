@@ -14,19 +14,22 @@ import {
   OtherOptions,
   PropertyContainer,
 } from "../../sytles/properties";
+import { Link } from "react-router-dom";
 
 const PropertyItem = (props) => {
-  let { address, district, province, bedrooms, bathrooms, area } = props;
+  let { id, address, district, province, bedrooms, bathrooms, area } = props;
   bathrooms = +bathrooms;
   area = +area;
   const [favorited, setFavorited] = useState(false);
 
-  function toogleFavorited(params) {
+  function toogleFavorited(event) {
+    event.preventDefault();
     setFavorited(!favorited);
   }
+
   return (
     <PropertyContainer>
-      <ImageContainer>
+      <ImageContainer as={Link} to={`properties/${id}`}>
         <img src={room} alt="" />
         <HeartContainer onClick={toogleFavorited}>
           {favorited ? <HeartIconAlt /> : <HeartIcon />}

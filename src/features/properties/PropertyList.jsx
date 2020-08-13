@@ -18,11 +18,13 @@ const PropertyList = () => {
   const error = useSelector((state) => state.properties.error);
 
   useEffect(() => {
-    dispatch(propertiesFetchStarted());
-    getAllProperties()
-      .then((properties) => dispatch(propertiesFetchSucceeded(properties)))
-      .catch((err) => dispatch(propertiesFetchFailed(err)));
-  }, [dispatch]);
+    if (properties.length === 0) {
+      dispatch(propertiesFetchStarted());
+      getAllProperties()
+        .then((properties) => dispatch(propertiesFetchSucceeded(properties)))
+        .catch((err) => dispatch(propertiesFetchFailed(err)));
+    }
+  }, [dispatch, properties.length]);
 
   const propertiesByDate = properties
     .slice()

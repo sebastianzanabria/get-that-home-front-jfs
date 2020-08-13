@@ -18,6 +18,7 @@ export const PropertyContainer = styled.article`
 
 export const ImageContainer = styled.div`
   position: relative;
+  display: block;
   img {
     width: 100%;
   }
