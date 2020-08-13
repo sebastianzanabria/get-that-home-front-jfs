@@ -9,6 +9,7 @@ import {
   propertiesFetchFailed,
   selectProperties,
 } from "./propertiesSlice";
+import Loading from "../shared/Loading";
 
 const PropertyList = () => {
   const dispatch = useDispatch();
@@ -27,11 +28,11 @@ const PropertyList = () => {
     .slice()
     .sort((a, b) => b.created_at.localeCompare(a.created_at));
 
-  const AllProperties = propertiesByDate.map((property) => (
+  const AllProperties = propertiesByDate?.map((property) => (
     <PropertyItem key={property.id} {...property} />
   ));
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>There're a error: {error}...</div>;
 
   return <Properties>{AllProperties}</Properties>;

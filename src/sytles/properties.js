@@ -23,7 +23,14 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const HeartContainer = styled.div`
+export const Button = styled.button`
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+`;
+
+export const HeartContainer = styled(Button)`
   position: absolute;
   right: 0.5rem;
   top: 0.5rem;
@@ -49,6 +56,7 @@ export const OtherOptions = styled.ul`
   padding-left: 0;
   list-style: none;
   display: flex;
+  margin-bottom: 15px;
   li {
     margin-right: 1rem;
     display: inline-flex;
