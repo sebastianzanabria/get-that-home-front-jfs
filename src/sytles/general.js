@@ -1,5 +1,11 @@
 import styled from "@emotion/styled";
 
+export const MainApp = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+`;
+
 export const Container = styled.div`
   width: 95%;
   margin: 0 auto;
