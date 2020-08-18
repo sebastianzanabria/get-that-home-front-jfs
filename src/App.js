@@ -9,17 +9,21 @@ import {
   Redirect,
 } from "react-router-dom";
 import PropertyPage from "./features/properties/PropertyPage";
+import Footer from "./features/shared/Footer";
+import Header from "./features/shared/Header";
 
 function App() {
   return (
     <Container>
       <Router>
+        <Header />
         <Switch>
-          <Route path="/" exact>
+          {/* <Route path="/" component={Footer} /> */}
+          {/* <Route path="/" exact>
             <Redirect to="/properties" />
           </Route>
           <Route path="/properties" exact component={PropertyList} />
-          <Route path="/properties/:id" component={PropertyPage} />
+          <Route path="/properties/:id" component={PropertyPage} /> */}
 
           <Route path="*" render={() => <div>page not found</div>} />
         </Switch>
