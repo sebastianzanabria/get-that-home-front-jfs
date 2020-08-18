@@ -13,6 +13,7 @@ import {
   ListInfo,
   OtherInfo,
   TitleMenuItem,
+  ItemLogo,
 } from "../../sytles/footer";
 
 const Footer = () => {
@@ -20,11 +21,11 @@ const Footer = () => {
     <FooterContainer>
       <ListLinks>
         <ListInfo>
-          <li>
+          <ItemLogo>
             <Link>
               <img src={logo} alt="logo" />
             </Link>
-          </li>
+          </ItemLogo>
           <li>
             <Link>
               <EmailIcon />

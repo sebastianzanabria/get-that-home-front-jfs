@@ -3,8 +3,12 @@ import styled from "@emotion/styled";
 export const FooterContainer = styled.footer`
   ul {
     list-style: none;
-    padding-left: 0;
+    padding-left: 1rem;
     padding-right: 1rem;
+    @media (min-width: 768px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
   ul:last-child {
     padding-right: 0;
@@ -29,10 +33,22 @@ export const ListLinks = styled.div`
 `;
 
 export const ListInfo = styled.ul`
-  font-size: 14px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 16px;
   flex-grow: 2;
   svg {
     margin-right: 5px;
+  }
+  li {
+    text-align: center;
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+  @media (min-width: 768px) {
+    font-size: 14px;
+    width: auto;
   }
 `;
 
@@ -42,9 +58,20 @@ export const OtherInfo = styled.ul`
 
 export const MenuSocial = styled.ul`
   display: flex;
+  justify-content: center;
+  @media (min-width: 768px) {
+    justify-content: left;
+  }
 `;
 
 export const TitleMenuItem = styled.li`
   font-size: 20px;
   color: #4fd1c5;
+`;
+
+export const ItemLogo = styled.li`
+  text-align: center;
+  @media (min-width: 768px) {
+    text-align: left;
+  }
 `;
