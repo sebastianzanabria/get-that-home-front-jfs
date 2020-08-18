@@ -5,6 +5,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 `;
 
 export const MenuContainer = styled.ul`
@@ -28,4 +29,33 @@ export const HamburgerContainer = styled.div`
   @media (min-width: 992px) {
     display: none;
   }
+`;
+
+export const ClonContainer = styled.div`
+  position: fixed;
+  background-color: #f7fbfd;
+  right: -100%;
+  width: 100%;
+  top: 0;
+  padding: 3rem;
+  transition: all 0.3s ease;
+`;
+
+export const MenuClon = styled.ul`
+  list-style: none;
+  padding-left: 0;
+  li {
+    padding-bottom: 3rem;
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+`;
+
+export const Button = styled.button`
+  outline: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 `;
