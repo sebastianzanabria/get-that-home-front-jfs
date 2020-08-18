@@ -27,6 +27,7 @@ function App() {
 
           <Route path="*" render={() => <div>page not found</div>} />
         </Switch>
+        <Footer />
       </Router>
     </Container>
   );
