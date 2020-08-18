@@ -20,6 +20,32 @@ export const LoadingContainer = styled.div`
   height: 100vh;
 `;
 
+const Button = styled.button`
+  outline: none;
+  border-radius: 4px;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+`;
+
+export const ButtonAlt = styled(Button)`
+  border: 1px solid #4fd1c5;
+  color: #4fd1c5 !important;
+
+  &:hover {
+    background-color: #4fd1c5;
+    color: #fff !important;
+  }
+`;
+export const ButtonPrimary = styled(Button)`
+  border: 1px solid #4fd1c5;
+  color: #fff !important;
+  background-color: #4fd1c5;
+  &:hover {
+    background-color: #3a9e94;
+    border: 1px solid #3a9e94;
+  }
+`;
+
 export const LoadingEffect = styled.div`
   width: 40px;
   left: 50%;
