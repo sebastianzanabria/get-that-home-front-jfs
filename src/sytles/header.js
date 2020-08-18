@@ -6,6 +6,7 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   position: relative;
+  margin-bottom: 30px;
 `;
 
 export const MenuContainer = styled.ul`
@@ -38,6 +39,7 @@ export const ClonContainer = styled.div`
   width: 100%;
   top: 0;
   padding: 3rem;
+  z-index: 2;
   transition: all 0.3s ease;
 `;
 

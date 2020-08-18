@@ -14,22 +14,22 @@ import Header from "./features/shared/Header";
 
 function App() {
   return (
-    <Container>
-      <Router>
+    <Router>
+      <Container>
         <Header />
+      </Container>
+      <Container>
         <Switch>
-          {/* <Route path="/" component={Footer} /> */}
-          {/* <Route path="/" exact>
+          <Route path="/" exact>
             <Redirect to="/properties" />
           </Route>
           <Route path="/properties" exact component={PropertyList} />
-          <Route path="/properties/:id" component={PropertyPage} /> */}
-
+          <Route path="/properties/:id" component={PropertyPage} />
           <Route path="*" render={() => <div>page not found</div>} />
         </Switch>
-        <Footer />
-      </Router>
-    </Container>
+      </Container>
+      <Footer />
+    </Router>
   );
 }
 

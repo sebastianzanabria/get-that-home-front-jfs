@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 
 export const FooterContainer = styled.footer`
+  background-color: #f7fbfd;
+  margin-top: 30px;
   ul {
     list-style: none;
     padding-left: 1rem;
@@ -25,6 +27,7 @@ export const FooterContainer = styled.footer`
 `;
 
 export const ListLinks = styled.div`
+  padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
   a {
@@ -73,5 +76,12 @@ export const ItemLogo = styled.li`
   text-align: center;
   @media (min-width: 768px) {
     text-align: left;
+  }
+`;
+
+export const Authors = styled.p`
+  color: #4a5568;
+  a {
+    color: #4a5568;
   }
 `;

@@ -17,7 +17,17 @@ import {
 import { Link } from "react-router-dom";
 
 const PropertyItem = (props) => {
-  let { id, address, district, province, bedrooms, bathrooms, area } = props;
+  let {
+    id,
+    address,
+    district,
+    province,
+    bedrooms,
+    bathrooms,
+    area,
+    price,
+    pets_allowed,
+  } = props;
   bathrooms = +bathrooms;
   area = +area;
   const [favorited, setFavorited] = useState(false);
@@ -37,10 +47,8 @@ const PropertyItem = (props) => {
       </ImageContainer>
       <div>
         <BasicInfo>
-          <h3>S/ 1000</h3>
-          <div>
-            <PetIcon />
-          </div>
+          <h3>S/ {price}</h3>
+          <div>{pets_allowed && <PetIcon />}</div>
         </BasicInfo>
         <Address>
           {address}, {district}, {province}
