@@ -15,6 +15,13 @@ const PageDetailSection = ({children, ...props}) => (
     </Box>
 );
 
+const Icon = ({text, iconComponent}) => (
+    <Flex alignItems="center">
+        <Box as={iconComponent} fontSize="3xl" color="purple.600" marginRight="12px"/>
+        <Text as="span"  color="purple.600" fontSize="2xl" fontFamily="body">{text}</Text>
+    </Flex>
+);
+
 export default function PropertyDetails(){
     return (
         <Container justifyContent="space-between" alignItems="flex-start">
@@ -31,24 +38,10 @@ export default function PropertyDetails(){
                     </Flex>
                 </Box>
                 <PageDetailSection display="flex" justifyContent="space-between">
-                    <Flex alignItems="center">
-                        <Box as={IoIosBed} fontSize="3xl" color="purple.600" marginRight="12px"/>
-                        <Text as="span"  color="purple.600" fontSize="2xl" fontFamily="body">2 Bedrooms</Text>
-                    </Flex>
-                    <Flex alignItems="center">
-                        <Box as={FaBath} fontSize="3xl" color="purple.600" marginRight="12px"/>
-                        <Text as="span"  color="purple.600" fontSize="2xl" fontFamily="body">2 Bathrooms</Text>
-                    </Flex>
-
-                    <Flex alignItems="center">
-                        <Box as={BsArrowsFullscreen} fontSize="3xl" color="purple.600" marginRight="12px"/>
-                        <Text as="span"  color="purple.600" fontSize="2xl" fontFamily="body">60 m2</Text>
-                    </Flex>
-
-                    <Flex alignItems="center">
-                        <Box as={MdPets} fontSize="3xl" color="purple.600" marginRight="12px"/>
-                        <Text as="span"  color="purple.600" fontSize="2xl" fontFamily="body">Pets Allowed</Text>
-                    </Flex>
+                    <Icon iconComponent={IoIosBed} text="2 Bedrooms" />
+                    <Icon iconComponent={FaBath} text="2 Bathrooms" />
+                    <Icon iconComponent={BsArrowsFullscreen} text="60 m2" />
+                    <Icon iconComponent={MdPets} text="Pets Allowed" />
                 </PageDetailSection>
                 <PageDetailSection>
                     <Text fontFamily="heading" marginBottom="20px" fontSize="xl" color="gray.700" fontWeight="bold">About this place</Text>
