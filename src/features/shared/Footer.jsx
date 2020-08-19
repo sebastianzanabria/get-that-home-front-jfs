@@ -30,13 +30,21 @@ const Footer = () => {
               </Link>
             </ItemLogo>
             <li>
-              <a href="mailto:info@getthathome.com" target="_blank">
+              <a
+                href="mailto:info@getthathome.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <EmailIcon />
                 info@getthathome.com
               </a>
             </li>
             <li>
-              <a href="telto:988345542" target="_blank">
+              <a
+                href="telto:988345542"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <PhoneIcon width="17" />
                 +51 988 345 542
               </a>
@@ -109,15 +117,27 @@ const Footer = () => {
       <div style={{ textAlign: "center" }}>
         <Authors>
           Build by{" "}
-          <a href="https://github.com/fmunives" target="_blank">
+          <a
+            href="https://github.com/fmunives"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             @fredd
           </a>
           ,{" "}
-          <a href="https://github.com/seussz" target="_blank">
+          <a
+            href="https://github.com/seussz"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             @sebas
           </a>{" "}
           and{" "}
-          <a href="https://github.com/seussz" target="_blank">
+          <a
+            href="https://github.com/seussz"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             @jorge
           </a>
         </Authors>

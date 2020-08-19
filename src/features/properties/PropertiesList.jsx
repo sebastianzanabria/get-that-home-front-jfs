@@ -11,7 +11,7 @@ import {
 } from "./propertiesSlice";
 import Loading from "../shared/Loading";
 
-const PropertyList = () => {
+const PropertiesList = () => {
   const dispatch = useDispatch();
   const properties = useSelector((state) => selectProperties(state));
   const loading = useSelector((state) => state.properties.loading);
@@ -37,7 +37,12 @@ const PropertyList = () => {
   if (loading) return <Loading />;
   if (error) return <div>There're a error: {error}...</div>;
 
-  return <Properties>{AllProperties}</Properties>;
+  return (
+    <>
+      <p>{properties.length} Properties found</p>
+      <Properties>{AllProperties}</Properties>
+    </>
+  );
 };
 
-export default PropertyList;
+export default PropertiesList;

@@ -26,17 +26,27 @@ export const LoadingContainer = styled.div`
   height: 100vh;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   outline: none;
+  border: none;
   border-radius: 4px;
   padding: 8px 20px;
+  cursor: pointer;
   transition: all 0.3s ease;
+  background-color: transparent;
+`;
+
+export const Input = styled.input`
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  padding: 8px 20px 8px 40px;
 `;
 
 export const ButtonAlt = styled(Button)`
   border: 1px solid #4fd1c5;
   color: #4fd1c5 !important;
-
+  background-color: #fff;
   &:hover {
     background-color: #4fd1c5;
     color: #fff !important;
@@ -89,6 +99,18 @@ export const LoadingEffect = styled.div`
     100% {
       top: 24px;
       height: 32px;
+    }
+  }
+`;
+
+export const FilterContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  align-items: center;
+  div:first-of-type {
+    > * {
+      margin-right: 1rem;
     }
   }
 `;
