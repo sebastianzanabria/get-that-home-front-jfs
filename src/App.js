@@ -10,6 +10,7 @@ import {
 import PropertiesPage from "./features/properties/PropertiesPage";
 import Footer from "./features/shared/Footer";
 import Header from "./features/shared/Header";
+import Home from "./features/pages/Home";
 
 function App() {
   return (
@@ -18,16 +19,16 @@ function App() {
         <Container>
           <Header />
         </Container>
-        <Container>
-          <Switch>
-            <Route path="/" exact>
-              <Redirect to="/properties" />
-            </Route>
+        <Switch>
+          <Route path="/" exact component={Home}>
+            {/* <Redirect to="/properties" /> */}
+          </Route>
+          <Container>
             <Route path="/properties" exact component={PropertiesPage} />
             <Route path="/properties/:id" component={PropertiesPage} />
             <Route path="*" render={() => <div>page not found</div>} />
-          </Switch>
-        </Container>
+          </Container>
+        </Switch>
         <Footer />
       </Router>
     </MainApp>

@@ -62,6 +62,13 @@ export const ButtonPrimary = styled(Button)`
   }
 `;
 
+export const ButtonSecondary = styled(Button)`
+  background: #805ad5;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 24px;
+`;
+
 export const LoadingEffect = styled.div`
   width: 40px;
   left: 50%;
@@ -112,5 +119,51 @@ export const FilterContainer = styled.div`
     > * {
       margin-right: 1rem;
     }
+  }
+`;
+
+export const Title = styled.h1`
+  font-weight: normal;
+  font-size: 48px;
+  color: #424174;
+  margin-bottom: 0;
+  margin-top: 0;
+`;
+
+export const Subtitle = styled.h2`
+  color: #424174;
+  font-weight: normal;
+  font-size: 39px;
+`;
+
+export const Content = styled.h2`
+  font-weight: normal;
+  font-size: 20px;
+  color: #718096;
+  margin-top: 14px;
+  margin-bottom: 40px;
+`;
+
+export const FormHome = styled.form`
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  box-shadow: 4px 9px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+`;
+
+export const FormItem = styled.div`
+  color: #435266;
+  padding: 0 20px;
+  border-right: 1px solid #a0aec0;
+  label {
+    color: #85909f;
+    font-size: 11px;
+  }
+  div {
+    padding: 8px 0;
   }
 `;
