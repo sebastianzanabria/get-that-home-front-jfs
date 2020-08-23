@@ -31,6 +31,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 4px;
   padding: 8px 20px;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
   background-color: transparent;
@@ -147,12 +148,16 @@ export const Content = styled.h2`
 export const FormHome = styled.form`
   background: #ffffff;
   border: 1px solid #d9d9d9;
+  flex-wrap: wrap;
   box-sizing: border-box;
   box-shadow: 4px 9px 15px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   padding: 15px 0;
   display: flex;
   align-items: center;
+  > * {
+    flex-grow: 1;
+  }
 `;
 
 export const FormItem = styled.div`

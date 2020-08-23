@@ -13,6 +13,7 @@ import { getAllProperties } from "../../app/api_properties";
 import Loading from "../shared/Loading";
 import PropertyItem from "../properties/PropertyItem";
 import { Properties } from "../../sytles/properties";
+import { PreviewTextContainer, ContentText } from "../../sytles/home";
 
 const PreviewApartments = () => {
   const properties = useSelector((state) => selectProperties(state));
@@ -37,32 +38,8 @@ const PreviewApartments = () => {
 
   return (
     <div>
-      <div
-        css={css`
-          text-align: center;
-          margin-top: 190px;
-        `}
-      >
-        <Content
-          css={css`
-            margin-top: 15px;
-            margin-bottom: 20px;
-            color: #8a8a97;
-            position: relative;
-            &:after {
-              position: absolute;
-              bottom: -16px;
-              left: 50%;
-              content: "";
-              display: inline-block;
-              width: 30px;
-              height: 5px;
-              background: #ffc252;
-            }
-          `}
-        >
-          Find an Apartment You Love
-        </Content>
+      <PreviewTextContainer>
+        <ContentText>Find an Apartment You Love</ContentText>
         <Subtitle
           css={css`
             margin-top: 35px;
@@ -71,7 +48,7 @@ const PreviewApartments = () => {
         >
           Homes for rent at the best prices
         </Subtitle>
-      </div>
+      </PreviewTextContainer>
       <Properties>{listThreeProperties}</Properties>
     </div>
   );

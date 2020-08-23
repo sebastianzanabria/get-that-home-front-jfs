@@ -14,6 +14,12 @@ import FormHomePage from "../components/FormHomePage";
 import PreviewApartments from "../components/PreviewApartments";
 import forSaleImage from "../../images/for_sale.jpg";
 import IllustrationImage from "../../images/Illustration.jpg";
+import { Link } from "react-router-dom";
+import {
+  MeetContainer,
+  CreateAccountContainer,
+  ForSaleContainer,
+} from "../../sytles/home";
 
 const Home = () => {
   return (
@@ -26,33 +32,19 @@ const Home = () => {
       `}
     >
       <Container>
-        <div
-          css={css`
-            width: 90%;
-            margin: 0 auto;
-          `}
-        >
+        <MeetContainer>
           <div style={{ textAlign: "center" }}>
             <Title>Meet your new home</Title>
             <Content>The easiest way to find where you belong</Content>
           </div>
           <FormHomePage />
-        </div>
+        </MeetContainer>
         <PreviewApartments />
       </Container>
-      <div
-        css={css`
-          background-color: #f7fbfd;
-          text-align: center;
-          width: 100%;
-          padding-top: 100px;
-          padding-bottom: 100px;
-          margin-top: 100px;
-        `}
-      >
+      <CreateAccountContainer>
         <Subtitle
           css={css`
-            width: 90%;
+            width: 70%;
             margin: 0 auto;
             margin-bottom: 24px;
           `}
@@ -60,40 +52,13 @@ const Home = () => {
           Getting someone to rent your apartment has never been this easy
         </Subtitle>
         <ButtonSecondary>Create an account now</ButtonSecondary>
-      </div>
+      </CreateAccountContainer>
       <Container>
-        <div
-          css={css`
-          margin-top:100px;
-          margin-bottom:100px;
-        display:grid;
-        align-items:center;
-        grid-template-columns: 1fr
-        gap: 1rem;
-        @media(min-width:768px){
-            
-            grid-template-columns: 1fr 1fr
-        }
-      `}
-        >
-          <div
-            css={css`
-              justify-self: center;
-              @media (min-width: 768px) {
-                justify-self: left;
-              }
-            `}
-          >
+        <ForSaleContainer>
+          <div>
             <img src={forSaleImage} alt="for_sale" />
           </div>
-          <div
-            css={css`
-              text-align: center;
-              @media (min-width: 768px) {
-                text-align: left;
-              }
-            `}
-          >
+          <div>
             <Content
               css={css`
                 color: #000000;
@@ -104,6 +69,8 @@ const Home = () => {
               Check the best priced properties in the town
             </Content>
             <ButtonPrimary
+              as={Link}
+              to="/properties"
               css={css`
                 padding: 10px 80px;
                 font-weight: 600;
@@ -113,7 +80,7 @@ const Home = () => {
               Find a home
             </ButtonPrimary>
           </div>
-        </div>
+        </ForSaleContainer>
       </Container>
     </div>
   );

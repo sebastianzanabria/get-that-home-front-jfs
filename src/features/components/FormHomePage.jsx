@@ -1,13 +1,18 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import React from "react";
-import { FormHome, FormItem, Input, ButtonPrimary } from "../../sytles/general";
+import {
+  FormHome,
+  FormItem as FormItemContainer,
+  Input,
+  ButtonPrimary,
+} from "../../sytles/general";
 import { ReactComponent as ArrowDownIcon } from "../../images/icons/arrow_down.svg";
 
 const FormHomePage = () => {
   return (
     <FormHome>
-      <FormItem>
+      <FormItemContainer>
         <label htmlFor="">I'm Looking For</label>
         <div>
           An Apartment
@@ -17,8 +22,12 @@ const FormHomePage = () => {
             `}
           />
         </div>
-      </FormItem>
-      <FormItem>
+      </FormItemContainer>
+      <FormItemContainer
+        css={css`
+          margin-right: 1rem;
+        `}
+      >
         <label htmlFor="">I want to</label>
         <div>
           Rent
@@ -28,8 +37,8 @@ const FormHomePage = () => {
             `}
           />
         </div>
-      </FormItem>
-      <FormItem
+      </FormItemContainer>
+      <FormItemContainer
         css={css`
           flex-grow: 1;
         `}
@@ -47,16 +56,22 @@ const FormHomePage = () => {
             placeholder="your place"
           />
         </div>
-      </FormItem>
-      <FormItem
+      </FormItemContainer>
+      <FormItemContainer
         css={css`
           border-right: none;
         `}
       >
         <div>
-          <ButtonPrimary>Search</ButtonPrimary>
+          <ButtonPrimary
+            css={css`
+              width: 100%;
+            `}
+          >
+            Search
+          </ButtonPrimary>
         </div>
-      </FormItem>
+      </FormItemContainer>
     </FormHome>
   );
 };
