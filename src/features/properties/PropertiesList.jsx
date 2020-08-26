@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
-import { getAllProperties } from "../../app/api_properties";
+import {
+  getAllProperties,
+  getFilteredProperties,
+  getLastestProperties,
+} from "../../app/api_properties";
 import { Properties } from "../../sytles/properties";
 import PropertyItem from "./PropertyItem";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,20 +15,28 @@ import {
 } from "./propertiesSlice";
 import Loading from "../shared/Loading";
 
-const PropertiesList = () => {
+const PropertiesList = ({ query, lastest }) => {
   const dispatch = useDispatch();
   const properties = useSelector((state) => selectProperties(state));
   const loading = useSelector((state) => state.properties.loading);
   const error = useSelector((state) => state.properties.error);
 
   useEffect(() => {
-    if (properties.length === 0) {
-      dispatch(propertiesFetchStarted());
+    dispatch(propertiesFetchStarted());
+    if (query) {
+      getFilteredProperties(query)
+        .then((data) => dispatch(propertiesFetchSucceeded(data)))
+        .catch((err) => dispatch(propertiesFetchFailed(err)));
+    } else if (lastest) {
+      getLastestProperties()
+        .then((properties) => dispatch(propertiesFetchSucceeded(properties)))
+        .catch((err) => dispatch(propertiesFetchFailed(err)));
+    } else {
       getAllProperties()
         .then((properties) => dispatch(propertiesFetchSucceeded(properties)))
         .catch((err) => dispatch(propertiesFetchFailed(err)));
     }
-  }, [dispatch, properties.length]);
+  }, [dispatch, query, lastest]);
 
   const propertiesByDate = properties
     .slice()
@@ -39,7 +51,7 @@ const PropertiesList = () => {
 
   return (
     <>
-      <p>{properties.length} Properties found</p>
+      {!lastest && <p>{properties.length} Properties found</p>}
       <Properties>{AllProperties}</Properties>
     </>
   );

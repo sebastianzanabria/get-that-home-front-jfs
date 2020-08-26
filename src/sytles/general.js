@@ -160,15 +160,12 @@ export const FormHome = styled.form`
   }
 `;
 
-export const FormItem = styled.div`
+export const FormItemContainer = styled.div`
   color: #435266;
   padding: 0 20px;
   border-right: 1px solid #a0aec0;
   label {
     color: #85909f;
     font-size: 11px;
-  }
-  div {
-    padding: 8px 0;
   }
 `;

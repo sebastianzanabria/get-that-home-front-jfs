@@ -1,77 +1,24 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 import React from "react";
-import {
-  FormHome,
-  FormItem as FormItemContainer,
-  Input,
-  ButtonPrimary,
-} from "../../sytles/general";
-import { ReactComponent as ArrowDownIcon } from "../../images/icons/arrow_down.svg";
+import { FormHome } from "../../sytles/general";
+import FormItem from "./FormItem";
 
 const FormHomePage = () => {
   return (
-    <FormHome>
-      <FormItemContainer>
-        <label htmlFor="">I'm Looking For</label>
-        <div>
-          An Apartment
-          <ArrowDownIcon
-            css={css`
-              margin-left: 13px;
-            `}
-          />
-        </div>
-      </FormItemContainer>
-      <FormItemContainer
-        css={css`
-          margin-right: 1rem;
-        `}
-      >
-        <label htmlFor="">I want to</label>
-        <div>
-          Rent
-          <ArrowDownIcon
-            css={css`
-              margin-left: 13px;
-            `}
-          />
-        </div>
-      </FormItemContainer>
-      <FormItemContainer
-        css={css`
-          flex-grow: 1;
-        `}
-      >
-        <label htmlFor="">Where</label>
-        <div>
-          <Input
-            css={css`
-              padding: 0;
-              border: none;
-              font-size: 16px;
-              color: #435266;
-            `}
-            type="text"
-            placeholder="your place"
-          />
-        </div>
-      </FormItemContainer>
-      <FormItemContainer
-        css={css`
-          border-right: none;
-        `}
-      >
-        <div>
-          <ButtonPrimary
-            css={css`
-              width: 100%;
-            `}
-          >
-            Search
-          </ButtonPrimary>
-        </div>
-      </FormItemContainer>
+    <FormHome method="GET" action="/properties">
+      <FormItem
+        label="I'm Looking For"
+        name="property"
+        type="select"
+        target="properties"
+      />
+      <FormItem
+        label="I want to"
+        name="operation"
+        type="select"
+        target="operations"
+      />
+      <FormItem label="Where" name="place" type="text" />
+      <FormItem label="Search" type="submit" />
     </FormHome>
   );
 };
