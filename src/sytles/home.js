@@ -70,3 +70,10 @@ export const ContentText = styled.div`
     background: #ffc252;
   }
 `;
+
+export const FilterItem = styled.div`
+  flex-grow: 1;
+  button {
+    width: 100%;
+  }
+`;

@@ -6,10 +6,12 @@ import {
   Button,
   Input,
   FilterContainer,
+  ButtonFilter,
 } from "../../sytles/general";
 import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
 import { ReactComponent as MoreIcon } from "../../images/icons/more.svg";
 import { ReactComponent as ArrowDown } from "../../images/icons/arrow_down.svg";
+import { FilterItem } from "../../sytles/home";
 
 const FilterProperties = () => {
   return (
@@ -17,13 +19,19 @@ const FilterProperties = () => {
       <div
         css={css`
           flex-grow: 1;
+          display: flex;
+          flex-wrap: wrap;
+          margin-bottom: 0 !important;
         `}
       >
         <div
           css={css`
             position: relative;
             display: inline-block;
-            width: 300px;
+            width: 100%;
+            @media (min-width: 1200px) {
+              width: 300px;
+            }
           `}
         >
           <SearchIcon
@@ -44,24 +52,41 @@ const FilterProperties = () => {
             `}
           />
         </div>
-        <ButtonAlt>Price</ButtonAlt>
-        <ButtonAlt>Property Type</ButtonAlt>
-        <ButtonAlt>Beds - Baths</ButtonAlt>
-        <ButtonAlt
-          css={css`
-            display: inline-flex;
-            align-items: center;
-          `}
-        >
-          More{" "}
-          <MoreIcon
+        <FilterItem>
+          <ButtonFilter>Price</ButtonFilter>
+        </FilterItem>
+        <FilterItem>
+          <ButtonFilter>Property Type</ButtonFilter>
+        </FilterItem>
+        <FilterItem>
+          <ButtonFilter>Beds - Baths</ButtonFilter>
+        </FilterItem>
+        <FilterItem>
+          <ButtonFilter
             css={css`
-              margin-left: 5px;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
             `}
-          />
-        </ButtonAlt>
+          >
+            More{" "}
+            <MoreIcon
+              css={css`
+                margin-left: 5px;
+              `}
+            />
+          </ButtonFilter>
+        </FilterItem>
       </div>
-      <div>
+      <div
+        css={css`
+          flex-grow: 1;
+          text-align: center;
+          @media (min-width: 1200px) {
+            text-align: right;
+          }
+        `}
+      >
         <Button
           css={css`
             font-size: 16px;

@@ -53,6 +53,10 @@ export const ButtonAlt = styled(Button)`
     color: #fff !important;
   }
 `;
+
+export const ButtonFilter = styled(ButtonAlt)`
+  padding: 8px 5px;
+`;
 export const ButtonPrimary = styled(Button)`
   border: 1px solid #4fd1c5;
   color: #fff !important;
@@ -113,13 +117,23 @@ export const LoadingEffect = styled.div`
 
 export const FilterContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 28px;
   align-items: center;
+  div {
+    margin-bottom: 1rem;
+    @media (min-width: 1200px) {
+      margin-bottom: 0;
+    }
+  }
   div:first-of-type {
     > * {
       margin-right: 1rem;
     }
+  }
+  @media (min-width: 992px) {
+    flex-wrap: nowrap;
   }
 `;
 
