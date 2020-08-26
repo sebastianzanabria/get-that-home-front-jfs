@@ -15,3 +15,10 @@ export async function getFilteredProperties(query) {
   const data = await result.json();
   return data;
 }
+export async function getAllPropertiesByType(type) {
+  const result = await fetch(
+    `${URL_LOCAL}/properties?type_of_property=${type}`
+  );
+  const data = await result.json();
+  return data;
+}
