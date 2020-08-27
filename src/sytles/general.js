@@ -26,21 +26,53 @@ export const LoadingContainer = styled.div`
   height: 100vh;
 `;
 
-const Button = styled.button`
+export const Input = styled.input`
   outline: none;
   border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  padding: 8px 20px 8px 40px;
+`;
+
+export const Button = styled.button`
+  outline: none;
+  border: none;
+  border-radius: 4px;
   padding: 8px 20px;
+  text-decoration: none;
+  cursor: pointer;
   transition: all 0.3s ease;
+  background-color: transparent;
+`;
+
+export const ButtonNormal = styled(Button)`
+  width: auto !important;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 5px;
+`;
+
+export const ButtonGrouped = styled(Button)`
+  width: 50px;
+  color: #4fd1c5;
+  border: 1px solid #4fd1c5;
+  border-radius: 0;
+  border-right: 0;
+  font-size: 12px;
+  padding: 8px 5px;
 `;
 
 export const ButtonAlt = styled(Button)`
   border: 1px solid #4fd1c5;
   color: #4fd1c5 !important;
-
+  background-color: #fff;
   &:hover {
     background-color: #4fd1c5;
     color: #fff !important;
   }
+`;
+
+export const ButtonFilter = styled(ButtonAlt)`
+  padding: 8px 5px;
 `;
 export const ButtonPrimary = styled(Button)`
   border: 1px solid #4fd1c5;
@@ -50,6 +82,13 @@ export const ButtonPrimary = styled(Button)`
     background-color: #3a9e94;
     border: 1px solid #3a9e94;
   }
+`;
+
+export const ButtonSecondary = styled(Button)`
+  background: #805ad5;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 24px;
 `;
 
 export const LoadingEffect = styled.div`
@@ -90,5 +129,74 @@ export const LoadingEffect = styled.div`
       top: 24px;
       height: 32px;
     }
+  }
+`;
+
+export const FilterContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  align-items: center;
+  div {
+    margin-bottom: 1rem;
+    @media (min-width: 1200px) {
+      margin-bottom: 0;
+    }
+  }
+  div:first-of-type {
+    > * {
+      margin-right: 1rem;
+    }
+  }
+  @media (min-width: 992px) {
+    flex-wrap: nowrap;
+  }
+`;
+
+export const Title = styled.h1`
+  font-weight: normal;
+  font-size: 48px;
+  color: #424174;
+  margin-bottom: 0;
+  margin-top: 0;
+`;
+
+export const Subtitle = styled.h2`
+  color: #424174;
+  font-weight: normal;
+  font-size: 39px;
+`;
+
+export const Content = styled.h2`
+  font-weight: normal;
+  font-size: 20px;
+  color: #718096;
+  margin-top: 14px;
+  margin-bottom: 40px;
+`;
+
+export const FormHome = styled.form`
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  box-shadow: 4px 9px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  > * {
+    flex-grow: 1;
+  }
+`;
+
+export const FormItemContainer = styled.div`
+  color: #435266;
+  padding: 0 20px;
+  border-right: 1px solid #a0aec0;
+  label {
+    color: #85909f;
+    font-size: 11px;
   }
 `;
