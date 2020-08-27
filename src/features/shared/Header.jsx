@@ -49,10 +49,10 @@ function Header() {
           </div>
           <MenuClon>
             <li>
-              <Link to="/properties/house">Find Houses</Link>
+              <Link to="/properties?property=house">Find Houses</Link>
             </li>
             <li>
-              <Link to="/properties/apartment">Find Apartments</Link>
+              <Link to="/properties?property=apartment">Find Apartments</Link>
             </li>
             <li>
               <ButtonAlt as={Link} to="/sign-up">
@@ -68,10 +68,10 @@ function Header() {
         </ClonContainer>
         <MenuContainer>
           <li>
-            <Link to="/properties/house">Find Houses</Link>
+            <Link to="/properties?property=house">Find Houses</Link>
           </li>
           <li>
-            <Link to="/properties/apartment">Find Apartments</Link>
+            <Link to="/properties?property=apartment">Find Apartments</Link>
           </li>
           <li>
             <ButtonAlt as={Link} to="/sign-up">

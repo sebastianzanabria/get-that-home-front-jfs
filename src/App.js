@@ -15,13 +15,11 @@ function App() {
           <Header />
         </Container>
         <Switch>
-          <Route path="/" exact component={Home}>
-            {/* <Redirect to="/properties" /> */}
-          </Route>
+          <Route path="/" exact component={Home}></Route>
           <Container>
             <Route path="/properties" exact component={PropertiesPage} />
-            <Route path="/properties/:id" component={PropertiesPage} />
-            <Route path="*" render={() => <div>page not found</div>} />
+            <Route path="/properties/:id" render={() => <div>page item</div>} />
+            {/* <Route path="*" render={() => <div>page not found</div>} /> */}
           </Container>
         </Switch>
         <Footer />

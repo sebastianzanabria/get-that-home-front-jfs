@@ -3,7 +3,6 @@ import {
   getAllProperties,
   getFilteredProperties,
   getLastestProperties,
-  getAllPropertiesByType,
 } from "../../app/api_properties";
 import { Properties } from "../../sytles/properties";
 import PropertyItem from "./PropertyItem";
@@ -16,7 +15,7 @@ import {
 } from "./propertiesSlice";
 import Loading from "../shared/Loading";
 
-const PropertiesList = ({ query, lastest, typeOfProperty }) => {
+const PropertiesList = ({ query, lastest }) => {
   const dispatch = useDispatch();
   const properties = useSelector((state) => selectProperties(state));
   const loading = useSelector((state) => state.properties.loading);
@@ -32,16 +31,12 @@ const PropertiesList = ({ query, lastest, typeOfProperty }) => {
       getLastestProperties()
         .then((properties) => dispatch(propertiesFetchSucceeded(properties)))
         .catch((err) => dispatch(propertiesFetchFailed(err)));
-    } else if (typeOfProperty) {
-      getAllPropertiesByType(typeOfProperty)
-        .then((properties) => dispatch(propertiesFetchSucceeded(properties)))
-        .catch((err) => dispatch(propertiesFetchFailed(err)));
     } else {
       getAllProperties()
         .then((properties) => dispatch(propertiesFetchSucceeded(properties)))
         .catch((err) => dispatch(propertiesFetchFailed(err)));
     }
-  }, [dispatch, query, lastest, typeOfProperty]);
+  }, [dispatch, query, lastest]);
 
   const propertiesByDate = properties
     .slice()

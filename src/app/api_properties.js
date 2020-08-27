@@ -11,14 +11,8 @@ export async function getLastestProperties() {
   return data;
 }
 export async function getFilteredProperties(query) {
+  console.log("query:", query);
   const result = await fetch(`${URL_LOCAL}/properties${query}`);
-  const data = await result.json();
-  return data;
-}
-export async function getAllPropertiesByType(type) {
-  const result = await fetch(
-    `${URL_LOCAL}/properties?type_of_property=${type}`
-  );
   const data = await result.json();
   return data;
 }
