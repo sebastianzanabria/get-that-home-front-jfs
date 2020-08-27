@@ -26,6 +26,13 @@ export const LoadingContainer = styled.div`
   height: 100vh;
 `;
 
+export const Input = styled.input`
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  padding: 8px 20px 8px 40px;
+`;
+
 export const Button = styled.button`
   outline: none;
   border: none;
@@ -37,11 +44,21 @@ export const Button = styled.button`
   background-color: transparent;
 `;
 
-export const Input = styled.input`
-  outline: none;
+export const ButtonNormal = styled(Button)`
+  width: auto !important;
+  background-color: #fff;
   border-radius: 4px;
-  border: 1px solid #e2e8f0;
-  padding: 8px 20px 8px 40px;
+  padding: 5px;
+`;
+
+export const ButtonGrouped = styled(Button)`
+  width: 50px;
+  color: #4fd1c5;
+  border: 1px solid #4fd1c5;
+  border-radius: 0;
+  border-right: 0;
+  font-size: 12px;
+  padding: 8px 5px;
 `;
 
 export const ButtonAlt = styled(Button)`

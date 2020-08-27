@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Container, MainApp } from "./sytles/general";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import PropertiesPage from "./features/properties/PropertiesPage";
+import PropertiesPage from "./features/pages/PropertiesPage";
 import Footer from "./features/shared/Footer";
 import Header from "./features/shared/Header";
 import Home from "./features/pages/Home";

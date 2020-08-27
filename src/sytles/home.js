@@ -72,6 +72,7 @@ export const ContentText = styled.div`
 `;
 
 export const FilterItem = styled.div`
+  position: relative;
   flex-grow: 1;
   button {
     width: 100%;

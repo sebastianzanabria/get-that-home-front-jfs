@@ -1,6 +1,6 @@
 import React from "react";
-import PropertiesList from "./PropertiesList";
-import FilterProperties from "./FilterProperties";
+import PropertiesList from "../properties/PropertiesList";
+import FilterProperties from "../components/FilterProperties";
 
 const PropertiesPage = (params) => {
   let typeOfProperty = "apartment";

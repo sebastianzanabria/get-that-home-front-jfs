@@ -2,7 +2,6 @@
 import { css, jsx } from "@emotion/core";
 // import React from "react";
 import {
-  ButtonAlt,
   Button,
   Input,
   FilterContainer,
@@ -12,8 +11,16 @@ import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
 import { ReactComponent as MoreIcon } from "../../images/icons/more.svg";
 import { ReactComponent as ArrowDown } from "../../images/icons/arrow_down.svg";
 import { FilterItem } from "../../sytles/home";
+import { FilterConditions } from "./FilterConditions";
+import { useState } from "react";
 
 const FilterProperties = () => {
+  const [display, setDisplay] = useState({
+    price: false,
+    property: false,
+    bed: false,
+    more: false,
+  });
   return (
     <FilterContainer>
       <div
@@ -53,13 +60,24 @@ const FilterProperties = () => {
           />
         </div>
         <FilterItem>
-          <ButtonFilter>Price</ButtonFilter>
+          <ButtonFilter onClick={() => setDisplay({ price: !display.price })}>
+            Price
+          </ButtonFilter>
+          <FilterConditions type="price" display={display.price} />
         </FilterItem>
         <FilterItem>
-          <ButtonFilter>Property Type</ButtonFilter>
+          <ButtonFilter
+            onClick={() => setDisplay({ property: !display.property })}
+          >
+            Property Type
+          </ButtonFilter>
+          <FilterConditions type="property" display={display.property} />
         </FilterItem>
         <FilterItem>
-          <ButtonFilter>Beds - Baths</ButtonFilter>
+          <ButtonFilter onClick={() => setDisplay({ bed: !display.bed })}>
+            Beds - Baths
+          </ButtonFilter>
+          <FilterConditions type="bed" display={display.bed} />
         </FilterItem>
         <FilterItem>
           <ButtonFilter
@@ -68,14 +86,11 @@ const FilterProperties = () => {
               align-items: center;
               justify-content: center;
             `}
+            onClick={() => setDisplay({ more: !display.more })}
           >
-            More{" "}
-            <MoreIcon
-              css={css`
-                margin-left: 5px;
-              `}
-            />
+            More <MoreIcon style={{ marginLeft: "5px" }} />
           </ButtonFilter>
+          <FilterConditions type="more" display={display.more} />
         </FilterItem>
       </div>
       <div
@@ -87,11 +102,7 @@ const FilterProperties = () => {
           }
         `}
       >
-        <Button
-          css={css`
-            font-size: 16px;
-          `}
-        >
+        <Button>
           Buying and Renting <ArrowDown />
         </Button>
       </div>

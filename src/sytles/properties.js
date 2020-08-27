@@ -67,3 +67,53 @@ export const OtherOptions = styled.ul`
     }
   }
 `;
+
+// filter conditions
+
+export const FilterContainer = styled.div`
+  background: #ffffff;
+  position: absolute;
+  top: 37px;
+  z-index: 2;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+`;
+
+export const FormFilter = styled.div`
+  margin: 0 !important;
+  width: 250px;
+  * {
+    margin-right: 0 !important;
+  }
+`;
+
+export const OptionsFilterContainer = styled.div`
+  padding: 10px;
+  margin: 0 !important;
+`;
+
+export const PriceContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0 !important;
+  input {
+    width: 100px;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  background-color: #4fd1c5;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 0 !important;
+  text-align: right;
+`;
+
+export const BedBathOptions = styled.div`
+  margin-top: 10px;
+  display: flex;
+  button:last-child {
+    border: 1px solid #4fd1c5;
+  }
+`;
