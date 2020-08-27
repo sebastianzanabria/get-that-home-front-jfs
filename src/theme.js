@@ -13,6 +13,13 @@ export default {
         ...theme.lineHeights,
         body: "150%"
     },
+    colors: {
+      ...theme.colors,
+        teal: {
+          ...theme.colors.teal,
+            500: "#4FD1C5"
+        }
+    },
     fontSizes: {
         xs: "0.75rem",
         sm: "0.875rem",

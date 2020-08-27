@@ -1,13 +1,15 @@
 import React from "react";
-import {Container} from '../../Components/StyleComponents'
 import {Box, Flex, List, ListIcon, ListItem, Text} from "@chakra-ui/core";
-import AsideComponent from "./AsideComponent";
-import ImageSlider from "../../Components/ImageSlider";
 import {IoIosBed} from 'react-icons/io';
 import {FaBath} from 'react-icons/fa'
 import {BsArrowsFullscreen} from 'react-icons/bs'
 import {MdPets} from 'react-icons/md'
+
+import {Container} from '../../Components/StyleComponents'
+import AsideComponent from "./AsideComponent";
+import ImageSlider from "../../Components/ImageSlider";
 import Map from "../../Components/Map";
+
 
 const PageDetailSection = ({children, ...props}) => (
     <Box as="section" width="100%" py="20px" borderTop='1px solid' borderColor="gray.500" {...props}>
@@ -23,6 +25,15 @@ const Icon = ({text, iconComponent}) => (
 );
 
 export default function PropertyDetails(){
+    const propertyDetail = {
+        own: {
+            username: "luis",
+            email: "asdjkas",
+            phoneNumber: "12397"
+        },
+        favorited: true,
+        contacted: true,
+    }
     return (
         <Container justifyContent="space-between" alignItems="flex-start">
             <Box as="main" width="75%">
@@ -62,10 +73,10 @@ export default function PropertyDetails(){
                 <PageDetailSection>
                     <Text fontFamily="heading" marginBottom="20px" fontSize="xl" color="gray.700" fontWeight="bold">Location</Text>
                     <Text as="p" fontFamily="heading" marginBottom="2" fontSize="md" fontWeight="bold" color="gray.500">Francisco de Paula Ugarriza 27, Miraflores, Lima</Text>
-                    <Map height="450px" coords={{lat: -12.119743, lng: -77.037245}}/>
+                    <Map height="450px" getCoords={(cords)=>{console.log(cords)}}/>
                 </PageDetailSection>
             </Box>
-            <AsideComponent width="23%" textAlign="center"/>
+            <AsideComponent width="23%" textAlign="center" propertyDetails={propertyDetail}/>
         </Container>
     );
 }

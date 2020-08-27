@@ -14,6 +14,7 @@ import {
 import PropertyPage from "./features/properties/PropertyPage";
 import Footer from "./features/shared/Footer";
 import Header from "./features/shared/Header";
+import CreateProperty from "./features/CreateProperty/CreateProperty";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Redirect to="/properties" />
             </Route>
             <Route path="/properties" exact component={PropertyList} />
+            <Route path="/properties/new" exact component={CreateProperty} />
             <Route path="/properties/:id" component={PropertyDetails} />
             <Route path="*" render={() => <div>page not found</div>} />
           </Switch>
