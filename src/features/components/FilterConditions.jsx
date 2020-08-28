@@ -7,18 +7,21 @@ import {
 } from "../../sytles/properties";
 import { BoxCondition } from "./BoxCondition";
 import { ButtonNormal } from "../../sytles/general";
+import { Formik, Form } from "formik";
 
 export const FilterConditions = ({ display, type }) => {
   return (
     <FilterContainer style={{ display: display ? "block" : "none" }}>
-      <FormFilter>
-        <OptionsFilterContainer>
-          <BoxCondition type={type} />
-        </OptionsFilterContainer>
-        <ButtonContainer>
-          <ButtonNormal>Done</ButtonNormal>
-        </ButtonContainer>
-      </FormFilter>
+      <Formik>
+        <FormFilter as={Form}>
+          <OptionsFilterContainer>
+            <BoxCondition type={type} />
+          </OptionsFilterContainer>
+          <ButtonContainer>
+            <ButtonNormal type="submit">Done</ButtonNormal>
+          </ButtonContainer>
+        </FormFilter>
+      </Formik>
     </FilterContainer>
   );
 };
