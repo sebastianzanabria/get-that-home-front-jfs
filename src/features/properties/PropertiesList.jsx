@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   getAllProperties,
   getFilteredProperties,
@@ -11,29 +11,27 @@ import {
   propertiesFetchStarted,
   propertiesFetchSucceeded,
   propertiesFetchFailed,
-  selectProperties,
   propertiesFiltered,
+  selectProperties,
   selectSearchProperties,
 } from "./propertiesSlice";
 import Loading from "../shared/Loading";
 
 const PropertiesList = ({ query, lastest, search }) => {
+  console.log({ search });
   const dispatch = useDispatch();
   const properties = useSelector((state) => selectProperties(state));
-  const [filteredProperties, setFilteredProperties] = useState([]);
+  const filteredProperties = useSelector((state) =>
+    selectSearchProperties(state)
+  );
 
   const loading = useSelector((state) => state.properties.loading);
   const error = useSelector((state) => state.properties.error);
 
-  function searchProperties(search) {
-    const copyProperties = properties.slice();
-    return copyProperties.filter((property) => property.address.match(search));
-  }
-
   useEffect(() => {
     dispatch(propertiesFetchStarted());
     if (search) {
-      setFilteredProperties(searchProperties(search));
+      dispatch(propertiesFiltered(search));
     }
     if (query) {
       getFilteredProperties(query)
@@ -83,7 +81,7 @@ const PropertiesList = ({ query, lastest, search }) => {
       {filteredProperties.length > 0 && search != null && (
         <Properties>{AllPropertiesSearched}</Properties>
       )}
-      {filteredProperties.length === 0 && search == null && (
+      {filteredProperties.length >= 0 && (search == null || search === "") && (
         <Properties>{AllProperties}</Properties>
       )}
     </>
