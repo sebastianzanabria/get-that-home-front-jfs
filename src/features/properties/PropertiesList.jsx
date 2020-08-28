@@ -12,14 +12,20 @@ import {
   propertiesFetchSucceeded,
   propertiesFetchFailed,
   selectProperties,
+  selectSearchProperties,
 } from "./propertiesSlice";
 import Loading from "../shared/Loading";
 
 const PropertiesList = ({ query, lastest }) => {
   const dispatch = useDispatch();
   const properties = useSelector((state) => selectProperties(state));
+  const filteredProperties = useSelector((state) =>
+    selectSearchProperties(state)
+  );
+
   const loading = useSelector((state) => state.properties.loading);
   const error = useSelector((state) => state.properties.error);
+  const filter = useSelector((state) => state.properties.filter);
 
   useEffect(() => {
     dispatch(propertiesFetchStarted());
@@ -46,13 +52,31 @@ const PropertiesList = ({ query, lastest }) => {
     <PropertyItem key={property.id} {...property} />
   ));
 
+  const AllPropertiesSearched = filteredProperties?.map((property) => (
+    <PropertyItem key={property.id} {...property} />
+  ));
+
   if (loading) return <Loading />;
   if (error) return <div>There're a error: {error}...</div>;
 
   return (
     <>
-      {!lastest && <p>{properties.length} Properties found</p>}
-      <Properties>{AllProperties}</Properties>
+      {!lastest && (
+        <p>
+          {filteredProperties.length > 0 && filter && (
+            <span>{filteredProperties.length} Properties found</span>
+          )}
+          {!filter && <span>{properties.length} Properties found</span>}
+          {filter && filteredProperties.length === 0 && (
+            <span>Any properties found</span>
+          )}
+        </p>
+      )}
+      {filter ? (
+        <Properties>{AllPropertiesSearched}</Properties>
+      ) : (
+        <Properties>{AllProperties}</Properties>
+      )}
     </>
   );
 };

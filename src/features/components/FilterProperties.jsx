@@ -1,18 +1,13 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 // import React from "react";
-import {
-  Button,
-  Input,
-  FilterContainer,
-  ButtonFilter,
-} from "../../sytles/general";
-import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
+import { Button, FilterContainer, ButtonFilter } from "../../sytles/general";
 import { ReactComponent as MoreIcon } from "../../images/icons/more.svg";
 import { ReactComponent as ArrowDown } from "../../images/icons/arrow_down.svg";
 import { FilterItem } from "../../sytles/home";
 import { FilterConditions } from "./FilterConditions";
 import { useState } from "react";
+import AddressBox from "../molecules/AddressBox";
 
 const FilterProperties = () => {
   const [display, setDisplay] = useState({
@@ -21,6 +16,7 @@ const FilterProperties = () => {
     bed: false,
     more: false,
   });
+
   return (
     <FilterContainer>
       <div
@@ -31,34 +27,7 @@ const FilterProperties = () => {
           margin-bottom: 0 !important;
         `}
       >
-        <div
-          css={css`
-            position: relative;
-            display: inline-block;
-            width: 100%;
-            @media (min-width: 1200px) {
-              width: 300px;
-            }
-          `}
-        >
-          <SearchIcon
-            css={css`
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-              left: 10px;
-            `}
-          />
-          <Input
-            placeholder="Text here"
-            type="search"
-            name="search_text"
-            id=""
-            css={css`
-              width: 100%;
-            `}
-          />
-        </div>
+        <AddressBox />
         <FilterItem>
           <ButtonFilter onClick={() => setDisplay({ price: !display.price })}>
             Price

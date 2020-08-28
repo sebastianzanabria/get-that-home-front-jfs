@@ -30,7 +30,7 @@ function App() {
             <Container>
               <Route path="/properties" exact component={PropertiesPage} />
               <Route path="/properties/:id" component={PropertyDetails} />
-              <Route path="*" render={() => <Home />} />
+              {/* <Route path="*" render={() => <Home />} /> */}
             </Container>
           </Switch>
           <Footer />
