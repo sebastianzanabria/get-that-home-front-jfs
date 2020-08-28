@@ -1,20 +1,23 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import React, { useContext } from "react";
 import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
 import { Input } from "../../sytles/general";
-import { useHistory } from "react-router-dom";
-import { FilterContext } from "../pages/PropertiesPage";
+import { useDispatch } from "react-redux";
+import {
+  propertiesFiltered,
+  disactivatedFilter,
+} from "../properties/propertiesSlice";
 
 const AddressBox = () => {
-  const history = useHistory();
-
-  const { modifyFilter } = useContext(FilterContext);
+  const dispatch = useDispatch();
 
   function handleChange(event) {
     const address = event.target.value;
-    modifyFilter(address);
-    history.push(`/properties?address=${address}`);
+    if (address == null || address === "") {
+      dispatch(disactivatedFilter());
+    } else {
+      dispatch(propertiesFiltered(address));
+    }
   }
   return (
     <div

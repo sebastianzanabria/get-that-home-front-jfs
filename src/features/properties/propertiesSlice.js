@@ -5,7 +5,7 @@ export const propertiesSlice = createSlice({
   initialState: {
     loading: false,
     error: null,
-    search: null,
+    filter: false,
     filteredProperties: [],
     properties: [],
   },
@@ -17,12 +17,25 @@ export const propertiesSlice = createSlice({
       state.properties = action.payload;
       state.loading = false;
     },
+    disactivatedFilter: (state) => {
+      state.filter = false;
+    },
     propertiesFiltered: (state, action) => {
       const newProperties = state.properties.filter((property) =>
-        property.address.match(action.payload)
+        property.address.toLowerCase().match(action.payload.toLowerCase())
       );
       state.filteredProperties = newProperties;
-      state.loading = false;
+      state.filter = true;
+    },
+    propertiesPrices: (state, action) => {
+      console.log({ action });
+      const newProperties = state.properties.filter(
+        (property) =>
+          +property.price >= +action.payload.priceMinimum &&
+          +property.price <= +action.payload.priceMaximum
+      );
+      state.filteredProperties = newProperties;
+      state.filter = true;
     },
     propertiesFetchFailed: (state, action) => {
       state.error = action.payload;
@@ -36,6 +49,8 @@ export const {
   propertiesFetchSucceeded,
   propertiesFetchFailed,
   propertiesFiltered,
+  propertiesPrices,
+  disactivatedFilter,
 } = propertiesSlice.actions;
 
 export const selectProperties = (state) => state.properties.properties;

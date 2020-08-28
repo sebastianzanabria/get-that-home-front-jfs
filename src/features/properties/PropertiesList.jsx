@@ -11,14 +11,12 @@ import {
   propertiesFetchStarted,
   propertiesFetchSucceeded,
   propertiesFetchFailed,
-  propertiesFiltered,
   selectProperties,
   selectSearchProperties,
 } from "./propertiesSlice";
 import Loading from "../shared/Loading";
 
-const PropertiesList = ({ query, lastest, search }) => {
-  console.log({ search });
+const PropertiesList = ({ query, lastest }) => {
   const dispatch = useDispatch();
   const properties = useSelector((state) => selectProperties(state));
   const filteredProperties = useSelector((state) =>
@@ -27,12 +25,10 @@ const PropertiesList = ({ query, lastest, search }) => {
 
   const loading = useSelector((state) => state.properties.loading);
   const error = useSelector((state) => state.properties.error);
+  const filter = useSelector((state) => state.properties.filter);
 
   useEffect(() => {
     dispatch(propertiesFetchStarted());
-    if (search) {
-      dispatch(propertiesFiltered(search));
-    }
     if (query) {
       getFilteredProperties(query)
         .then((data) => dispatch(propertiesFetchSucceeded(data)))
@@ -46,7 +42,7 @@ const PropertiesList = ({ query, lastest, search }) => {
         .then((properties) => dispatch(propertiesFetchSucceeded(properties)))
         .catch((err) => dispatch(propertiesFetchFailed(err)));
     }
-  }, [dispatch, query, lastest, search]);
+  }, [dispatch, query, lastest]);
 
   const propertiesByDate = properties
     .slice()
@@ -67,21 +63,18 @@ const PropertiesList = ({ query, lastest, search }) => {
     <>
       {!lastest && (
         <p>
-          {filteredProperties.length > 0 && search != null && (
+          {filteredProperties.length > 0 && filter && (
             <span>{filteredProperties.length} Properties found</span>
           )}
-          {filteredProperties.length === 0 && search == null && (
-            <span>{properties.length} Properties found</span>
+          {!filter && <span>{properties.length} Properties found</span>}
+          {filter && filteredProperties.length === 0 && (
+            <span>Any properties found</span>
           )}
         </p>
       )}
-      {filteredProperties.length === 0 && search != null && (
-        <div>nothing found</div>
-      )}
-      {filteredProperties.length > 0 && search != null && (
+      {filter ? (
         <Properties>{AllPropertiesSearched}</Properties>
-      )}
-      {filteredProperties.length >= 0 && (search == null || search === "") && (
+      ) : (
         <Properties>{AllProperties}</Properties>
       )}
     </>
